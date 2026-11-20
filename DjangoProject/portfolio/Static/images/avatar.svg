@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <!-- Classic WhatsApp Default Avatar Background -->
+  <rect width="240" height="240" fill="#dfe5e7" />
+
+  <!-- User Head Silhouette -->
+  <circle cx="120" cy="92" r="42" fill="#ffffff" />
+
+  <!-- User Shoulders Silhouette -->
+  <path d="M42 240 C42 184, 76 154, 120 154 C164 154, 198 184, 198 240 Z" fill="#ffffff" />
+</svg>

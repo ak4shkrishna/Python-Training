@@ -1,0 +1,936 @@
+/* =========================================
+   1. Aesthetic Design Tokens (Dark Default)
+   ========================================= */
+:root {
+    --bg-main: #09090b;
+    --bg-surface: rgba(24, 24, 27, 0.72);
+    --bg-surface-solid: #18181b;
+    --bg-nav: rgba(9, 9, 11, 0.75);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --accent-1: #6366f1;
+    --accent-2: #a855f7;
+    --accent-glow: rgba(99, 102, 241, 0.18);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(168, 85, 247, 0.45);
+    --spotlight-color: rgba(129, 140, 248, 0.12);
+    --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+    --radius-lg: 18px;
+    --radius-md: 12px;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] {
+    --bg-main: #fafafa;
+    --bg-surface: rgba(255, 255, 255, 0.85);
+    --bg-surface-solid: #ffffff;
+    --bg-nav: rgba(250, 250, 250, 0.8);
+    --text-primary: #09090b;
+    --text-secondary: #52525b;
+    --text-muted: #71717a;
+    --accent-1: #4f46e5;
+    --accent-2: #9333ea;
+    --accent-glow: rgba(79, 70, 229, 0.12);
+    --border-subtle: rgba(9, 9, 11, 0.08);
+    --border-hover: rgba(79, 70, 229, 0.4);
+    --spotlight-color: rgba(79, 70, 229, 0.08);
+    --shadow-card: 0 10px 30px -10px rgba(15, 23, 42, 0.08);
+}
+
+/* =========================================
+   2. Base & Ambient Glow Orbs
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.65;
+    overflow-x: hidden;
+    position: relative;
+    transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* Subtle dot-grid background texture */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(var(--border-subtle) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    z-index: -2;
+}
+
+.bg-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(110px);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.55;
+}
+
+.orb-1 {
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, var(--accent-1), transparent 70%);
+    top: -120px;
+    left: -100px;
+}
+
+.orb-2 {
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, var(--accent-2), transparent 70%);
+    bottom: 10%;
+    right: -120px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 96px 0;
+}
+
+/* =========================================
+   3. Section Headers & Gradient Typography
+   ========================================= */
+.section-header {
+    margin-bottom: 48px;
+}
+
+.section-kicker {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: var(--accent-1);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =========================================
+   4. Frosted Glass Sticky Navbar
+   ========================================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--bg-nav);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 16px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+}
+
+.logo-accent {
+    color: var(--accent-1);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-num {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent-1);
+}
+
+.nav-links a:hover,
+.nav-links a.active-link {
+    color: var(--text-primary);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-btn {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.icon-btn:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-1px);
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* =========================================
+   5. Bento Card Base & Spotlight Effect
+   ========================================= */
+.bento-card {
+    position: relative;
+    background: var(--bg-surface);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.bento-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        var(--spotlight-color),
+        transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.bento-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-3px);
+}
+
+.bento-card:hover::before {
+    opacity: 1;
+}
+
+/* =========================================
+   6. Buttons
+   ========================================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    color: #ffffff;
+    box-shadow: 0 6px 20px -4px var(--accent-glow);
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.btn-glass {
+    background: var(--bg-surface);
+    border-color: var(--border-subtle);
+    color: var(--text-primary);
+}
+
+.btn-glass:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+    color: var(--text-primary);
+    background: var(--bg-surface);
+}
+
+.btn-sm {
+    padding: 7px 13px;
+    font-size: 0.82rem;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* =========================================
+   7. Hero & Personal Profile Card
+   ========================================= */
+.hero {
+    padding: 88px 0 80px 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.95fr;
+    gap: 44px;
+    align-items: center;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+    70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    margin-bottom: 12px;
+}
+
+.hero-role {
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 18px;
+}
+
+.hero-description {
+    font-size: 1.04rem;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    max-width: 560px;
+}
+
+.hero-description strong {
+    color: var(--text-primary);
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.welcome-toast {
+    margin-top: 18px;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-hover);
+    font-size: 0.92rem;
+    color: var(--text-primary);
+}
+
+/* Personal Profile Card & Avatar Frame */
+.profile-card {
+    padding: 32px 28px;
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 116px;
+    height: 116px;
+    margin: 0 auto 16px auto;
+    padding: 4px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    box-shadow: 0 12px 28px -6px var(--accent-glow);
+    transition: var(--transition);
+}
+
+.profile-card:hover .profile-avatar {
+    transform: scale(1.04);
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    background-color: var(--bg-surface-solid);
+}
+
+.profile-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.profile-tagline {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 22px;
+}
+
+.profile-details {
+    text-align: left;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 14px 0;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.88rem;
+}
+
+.detail-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.detail-value {
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: right;
+}
+
+.detail-link {
+    font-weight: 600;
+    color: var(--accent-1);
+    text-decoration: none;
+}
+
+.detail-link:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   8. About Bento Grid
+   ========================================= */
+.bento-about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 20px;
+}
+
+.about-main {
+    grid-row: span 2;
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-main h3 {
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+}
+
+.about-main p {
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+}
+
+.about-main p:last-child {
+    margin-bottom: 0;
+}
+
+.stat-tile {
+    padding: 28px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+
+.stat-label {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* =========================================
+   9. Skills & Tech Pills
+   ========================================= */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.skill-card {
+    padding: 30px;
+}
+
+.skill-icon {
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+}
+
+.skill-card h3 {
+    font-size: 1.18rem;
+    margin-bottom: 8px;
+}
+
+.skill-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-pill {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    padding: 5px 11px;
+    border-radius: 8px;
+    background: var(--accent-glow);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+}
+
+/* =========================================
+   10. Projects & Filter Bar
+   ========================================= */
+.filter-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.filter-btn {
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-surface);
+    color: var(--text-secondary);
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.project-card {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card.hidden {
+    display: none;
+}
+
+.project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.project-badge {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--accent-1);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.project-year {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.project-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+}
+
+.project-card p {
+    color: var(--text-secondary);
+    font-size: 0.94rem;
+    margin-bottom: 22px;
+}
+
+/* =========================================
+   11. Vertical Editorial Timeline
+   ========================================= */
+.timeline {
+    position: relative;
+    padding-left: 28px;
+    border-left: 2px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -35px;
+    top: 26px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    box-shadow: 0 0 12px var(--accent-1);
+}
+
+.timeline-card {
+    padding: 26px 30px;
+}
+
+.timeline-date {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-1);
+    font-weight: 600;
+}
+
+.timeline-card h3 {
+    font-size: 1.18rem;
+    margin: 4px 0;
+}
+
+.timeline-org {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.timeline-desc {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+}
+
+/* =========================================
+   12. Contact Section
+   ========================================= */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1.55fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contact-tile {
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.tile-label {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.tile-link {
+    font-weight: 600;
+    font-size: 0.96rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    word-break: break-word;
+    transition: var(--transition);
+}
+
+.tile-link:hover {
+    color: var(--accent-1);
+}
+
+.tile-value {
+    font-weight: 600;
+    font-size: 0.96rem;
+}
+
+.tile-subtext {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+}
+
+.contact-form {
+    padding: 32px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.86rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.94rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-1);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.form-status {
+    margin-top: 16px;
+    padding: 14px;
+    border-radius: var(--radius-md);
+    background: rgba(34, 197, 94, 0.14);
+    border: 1px solid rgba(34, 197, 94, 0.4);
+    color: #4ade80;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+[data-theme="light"] .form-status {
+    color: #15803d;
+}
+
+/* =========================================
+   13. Footer & Scroll Reveal Animations
+   ========================================= */
+.footer {
+    border-top: 1px solid var(--border-subtle);
+    padding: 32px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--accent-1);
+}
+
+/* Progressive Scroll Reveal */
+.js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.js-ready .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   14. Responsive Design
+   ========================================= */
+@media (max-width: 900px) {
+    .hero-grid,
+    .bento-about-grid,
+    .skills-grid,
+    .projects-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-main {
+        grid-row: auto;
+    }
+
+    .hero h1 {
+        font-size: 2.35rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .mobile-only {
+        display: inline-flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        right: 5%;
+        width: 210px;
+        padding: 20px;
+        background: var(--bg-surface-solid);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-card);
+        gap: 16px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+}

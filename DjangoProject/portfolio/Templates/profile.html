@@ -1,0 +1,442 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash Krishna R — Software Developer</title>
+    <!-- Aesthetic Geometric & Monospace Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!-- Ambient Background Glow Orbs -->
+    <div class="bg-orb orb-1" aria-hidden="true"></div>
+    <div class="bg-orb orb-2" aria-hidden="true"></div>
+
+    <!-- Frosted Glass Navigation Bar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                Akash<span class="logo-accent">.dev</span>
+            </a>
+
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#about"><span class="nav-num">01.</span> About</a></li>
+                    <li><a href="#skills"><span class="nav-num">02.</span> Stack</a></li>
+                    <li><a href="#projects"><span class="nav-num">03.</span> Projects</a></li>
+                    <li><a href="#timeline"><span class="nav-num">04.</span> Journey</a></li>
+                    <li><a href="#contact"><span class="nav-num">05.</span> Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Switch Theme" title="Toggle Dark / Light Theme">
+                    ☀️
+                </button>
+                <button id="menu-toggle" class="icon-btn mobile-only" aria-label="Toggle Menu">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section (Starting Page Introduction) -->
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content reveal-on-scroll">
+                    <div class="status-pill">
+                        <span class="pulse-dot"></span>
+                        <span>Open to Internships &amp; Collaborations</span>
+                    </div>
+
+                    <h1>
+                        Hi, I'm <span class="gradient-text">Akash Krishna R</span>
+                    </h1>
+
+                    <p class="hero-role">
+                        Computer Science &amp; Engineering Student • Python &amp; Django Developer
+                    </p>
+
+                    <p class="hero-description">
+                        Welcome to my personal portfolio! I am a CSE undergraduate at
+                        <strong>Gopalan College of Engineering and Management (VTU)</strong> in Bengaluru.
+                        I enjoy building clean, responsive web applications using
+                        <strong>Python, Django, HTML, CSS, and JavaScript</strong>, alongside computer vision
+                        and hackathon software projects.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">Explore My Projects</a>
+                        <a href="#contact" class="btn btn-glass">Contact Me</a>
+                        <button id="welcome-btn" class="btn btn-ghost">Say Hello 👋</button>
+                    </div>
+
+                    <p id="welcome-message" class="welcome-toast" hidden></p>
+                </div>
+
+                <!-- Personal Profile Card with Dummy Avatar -->
+                <aside class="profile-card bento-card reveal-on-scroll">
+                    <div class="profile-avatar">
+                        <img src="{% static 'images/avatar.svg' %}" alt="Akash Krishna R Profile Picture" class="avatar-img">
+                    </div>
+                    <h2 class="profile-name">Akash Krishna R</h2>
+                    <p class="profile-tagline">Aspiring Full-Stack Software Developer</p>
+
+                    <div class="profile-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Education</span>
+                            <span class="detail-value">B.E. CSE (VTU), Bengaluru</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Core Stack</span>
+                            <span class="detail-value">Python, Django, HTML/CSS, JS</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">GitHub</span>
+                            <a href="https://github.com/ak4shkrishna" target="_blank" rel="noopener noreferrer" class="detail-link">
+                                @ak4shkrishna ↗
+                            </a>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Location</span>
+                            <span class="detail-value">Bengaluru, Karnataka</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <a href="https://github.com/ak4shkrishna" target="_blank" rel="noopener noreferrer" class="btn btn-glass btn-full">
+                            View GitHub Profile ↗
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- About Me Bento Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header reveal-on-scroll">
+                    <span class="section-kicker">01 // MORE ABOUT ME</span>
+                    <h2 class="section-title">Background &amp; Focus</h2>
+                </div>
+
+                <div class="bento-about-grid">
+                    <div class="bento-card about-main reveal-on-scroll">
+                        <h3>Engineering solutions from idea to interface</h3>
+                        <p>
+                            My journey in software development began with problem-solving in Python and C, and has grown
+                            into building structured web applications with <strong>Django</strong> and modern frontend tools.
+                        </p>
+                        <p>
+                            As Team Lead for <strong>Team Zenix</strong> and an active participant in Bengaluru hackathons,
+                            I focus on writing readable code, designing intuitive user interfaces, and turning real-world
+                            problems into working prototypes.
+                        </p>
+                    </div>
+
+                    <div class="bento-card stat-tile reveal-on-scroll">
+                        <span class="stat-number gradient-text">05+</span>
+                        <span class="stat-label">Projects Engineered</span>
+                    </div>
+
+                    <div class="bento-card stat-tile reveal-on-scroll">
+                        <span class="stat-number gradient-text">Lead</span>
+                        <span class="stat-label">Team Zenix Projects</span>
+                    </div>
+
+                    <div class="bento-card stat-tile reveal-on-scroll">
+                        <span class="stat-number gradient-text">03+</span>
+                        <span class="stat-label">Hackathons &amp; Tech Fests</span>
+                    </div>
+
+                    <div class="bento-card stat-tile reveal-on-scroll">
+                        <span class="stat-number gradient-text">BLR</span>
+                        <span class="stat-label">Based in Bengaluru</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="section-header reveal-on-scroll">
+                    <span class="section-kicker">02 // CAPABILITIES</span>
+                    <h2 class="section-title">Technical Stack</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="bento-card skill-card reveal-on-scroll">
+                        <div class="skill-icon">🎨</div>
+                        <h3>Frontend Craft</h3>
+                        <p class="skill-desc">Responsive layouts, semantic markup, and interactive DOM experiences.</p>
+                        <div class="pill-group">
+                            <span class="tech-pill">HTML5</span>
+                            <span class="tech-pill">CSS3 Grid &amp; Flexbox</span>
+                            <span class="tech-pill">JavaScript (ES6+)</span>
+                            <span class="tech-pill">Responsive UI</span>
+                        </div>
+                    </div>
+
+                    <div class="bento-card skill-card reveal-on-scroll">
+                        <div class="skill-icon">⚙️</div>
+                        <h3>Backend &amp; Logic</h3>
+                        <p class="skill-desc">Clean URL routing, server-side template rendering, and core scripting.</p>
+                        <div class="pill-group">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">Django 6.1</span>
+                            <span class="tech-pill">MVT Architecture</span>
+                            <span class="tech-pill">REST Fundamentals</span>
+                        </div>
+                    </div>
+
+                    <div class="bento-card skill-card reveal-on-scroll">
+                        <div class="skill-icon">🛠️</div>
+                        <h3>Tools &amp; Exploration</h3>
+                        <p class="skill-desc">Modern developer workflows, computer vision, and security basics.</p>
+                        <div class="pill-group">
+                            <span class="tech-pill">Git &amp; GitHub</span>
+                            <span class="tech-pill">VS Code &amp; venv</span>
+                            <span class="tech-pill">OpenCV</span>
+                            <span class="tech-pill">Linux &amp; Networking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-header reveal-on-scroll">
+                    <span class="section-kicker">03 // SELECTED WORK</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                </div>
+
+                <!-- Interactive Filter Tabs -->
+                <div class="filter-bar reveal-on-scroll">
+                    <button class="filter-btn active" data-filter="all">All Work</button>
+                    <button class="filter-btn" data-filter="web">Web Platforms</button>
+                    <button class="filter-btn" data-filter="ai">AI &amp; Vision</button>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="bento-card project-card reveal-on-scroll" data-category="web">
+                        <div class="project-top">
+                            <span class="project-badge">Web Platform</span>
+                            <span class="project-year">2026</span>
+                        </div>
+                        <h3>Lifesaver — Emergency Response Network</h3>
+                        <p>
+                            A real-time emergency coordination web application connecting local blood donors and
+                            medicine stockists across Bengaluru during urgent medical situations.
+                        </p>
+                        <div class="pill-group">
+                            <span class="tech-pill">HTML/CSS</span>
+                            <span class="tech-pill">JavaScript</span>
+                            <span class="tech-pill">Interactive Maps</span>
+                        </div>
+                    </article>
+
+                    <article class="bento-card project-card reveal-on-scroll" data-category="ai">
+                        <div class="project-top">
+                            <span class="project-badge">Computer Vision</span>
+                            <span class="project-year">2026</span>
+                        </div>
+                        <h3>Signify-Q — Sign &amp; Gesture Translator</h3>
+                        <p>
+                            An assistive computer vision pipeline that recognizes hand gestures in real time and
+                            converts them into readable text for accessible communication.
+                        </p>
+                        <div class="pill-group">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">OpenCV</span>
+                            <span class="tech-pill">MediaPipe</span>
+                        </div>
+                    </article>
+
+                    <article class="bento-card project-card reveal-on-scroll" data-category="ai">
+                        <div class="project-top">
+                            <span class="project-badge">Safety System</span>
+                            <span class="project-year">2026</span>
+                        </div>
+                        <h3>Vision-Based Fall Detection Monitor</h3>
+                        <p>
+                            An automated camera monitoring system that detects sudden human falls and triggers
+                            instant alerts through a lightweight web dashboard.
+                        </p>
+                        <div class="pill-group">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">OpenCV</span>
+                            <span class="tech-pill">Web Dashboard</span>
+                        </div>
+                    </article>
+
+                    <article class="bento-card project-card reveal-on-scroll" data-category="web">
+                        <div class="project-top">
+                            <span class="project-badge">Django MVT</span>
+                            <span class="project-year">2026</span>
+                        </div>
+                        <h3>Personal Developer Portfolio</h3>
+                        <p>
+                            A bespoke developer portfolio powered by Django URL routing and static file management,
+                            styled with glassmorphism, CSS Grid, and vanilla JavaScript.
+                        </p>
+                        <div class="pill-group">
+                            <span class="tech-pill">Django 6.1</span>
+                            <span class="tech-pill">CSS Variables</span>
+                            <span class="tech-pill">Vanilla JS</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey / Timeline Section -->
+        <section id="timeline" class="section">
+            <div class="container">
+                <div class="section-header reveal-on-scroll">
+                    <span class="section-kicker">04 // EXPERIENCE</span>
+                    <h2 class="section-title">Education &amp; Milestones</h2>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item reveal-on-scroll">
+                        <div class="timeline-marker"></div>
+                        <div class="bento-card timeline-card">
+                            <span class="timeline-date">2024 — Present</span>
+                            <h3>B.E. in Computer Science &amp; Engineering</h3>
+                            <p class="timeline-org">Gopalan College of Engineering and Management (VTU) • Bengaluru</p>
+                            <p class="timeline-desc">
+                                Building strong foundations in algorithms, operating systems, computer networks, and full-stack software engineering.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal-on-scroll">
+                        <div class="timeline-marker"></div>
+                        <div class="bento-card timeline-card">
+                            <span class="timeline-date">2026</span>
+                            <h3>Team Lead — Team Zenix</h3>
+                            <p class="timeline-org">Academic &amp; Hackathon Engineering Builds</p>
+                            <p class="timeline-desc">
+                                Led system architecture, UI/UX planning, and team coordination across multi-member technical projects.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal-on-scroll">
+                        <div class="timeline-marker"></div>
+                        <div class="bento-card timeline-card">
+                            <span class="timeline-date">2025 — 2026</span>
+                            <h3>Hackathon Builder &amp; Tech Community</h3>
+                            <p class="timeline-org">Smart India Hackathon (Internal) &amp; Bengaluru Tech Events</p>
+                            <p class="timeline-desc">
+                                Rapidly prototyped social-impact and AI-assisted applications under 24-to-36-hour hackathon sprints.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header reveal-on-scroll">
+                    <span class="section-kicker">05 // GET IN TOUCH</span>
+                    <h2 class="section-title">Let's Build Together</h2>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-sidebar reveal-on-scroll">
+                        <!-- Email Tile -->
+                        <div class="bento-card contact-tile">
+                            <span class="tile-label">Direct Email</span>
+                            <a href="mailto:akashkrishna7890@gmail.com" class="tile-link">
+                                akashkrishna7890@gmail.com
+                            </a>
+                            <button type="button" class="btn btn-glass btn-sm copy-btn" data-copy="akashkrishna7890@gmail.com">
+                                Copy Email 📋
+                            </button>
+                        </div>
+
+                        <!-- Phone Tile -->
+                        <div class="bento-card contact-tile">
+                            <span class="tile-label">Phone / WhatsApp</span>
+                            <a href="tel:+918792156936" class="tile-link">
+                                +91 87921 56936
+                            </a>
+                            <button type="button" class="btn btn-glass btn-sm copy-btn" data-copy="8792156936">
+                                Copy Number 📋
+                            </button>
+                        </div>
+
+                        <!-- GitHub Tile -->
+                        <div class="bento-card contact-tile">
+                            <span class="tile-label">GitHub Profile</span>
+                            <a href="https://github.com/ak4shkrishna" target="_blank" rel="noopener noreferrer" class="tile-link">
+                                github.com/ak4shkrishna ↗
+                            </a>
+                            <p class="tile-subtext">Explore repositories, code samples, and contributions.</p>
+                        </div>
+
+                        <!-- Location Tile -->
+                        <div class="bento-card contact-tile">
+                            <span class="tile-label">Location</span>
+                            <p class="tile-value">Bengaluru, Karnataka, India</p>
+                        </div>
+                    </div>
+
+                    <form id="contact-form" class="bento-card contact-form reveal-on-scroll">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Collaboration / Internship Opportunity" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">Send Message ✨</button>
+                        <div id="form-status" class="form-status" hidden></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Minimalist Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>Designed &amp; built by <strong>Akash Krishna R</strong> • Powered by Django 6.1</p>
+            <div class="footer-links">
+                <a href="https://github.com/ak4shkrishna" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="mailto:akashkrishna7890@gmail.com">Email</a>
+                <a href="#home" class="back-to-top">Top ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
